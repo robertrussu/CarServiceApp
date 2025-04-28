@@ -1,0 +1,23 @@
+﻿@model CarServiceApp.Models.ServiceRequest
+
+<h2>Schedule Service</h2>
+
+<form asp-action="Schedule" method="post">
+    <div class="form-group">
+        <label asp-for="FullName"></label>
+        <input asp-for="FullName" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Email"></label>
+        <input asp-for="Email" type="email" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="VehicleModel"></label>
+        <input asp-for="VehicleModel" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="ProblemDescription"></label>
+        <textarea asp-for="ProblemDescription" class="form-control"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary mt-3">Submit</button>
+</form>
