@@ -1,10 +1,8 @@
 ﻿using CarServiceApp.Models;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CarServiceApp.Controllers
 {
-    [Authorize]
     public class MyAppointmentsController : Controller
     {
         public IActionResult Index()
@@ -16,5 +14,6 @@ namespace CarServiceApp.Controllers
 
             return View(myRequests);
         }
+
     }
 }
