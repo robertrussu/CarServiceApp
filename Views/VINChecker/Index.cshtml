@@ -1,0 +1,18 @@
+﻿@{
+    ViewData["Title"] = "VIN Checker";
+}
+
+<h2>VIN Checker</h2>
+
+<form method="post">
+    <div class="form-group">
+        <label for="vin">Enter VIN:</label>
+        <input type="text" name="vin" class="form-control" id="vin" />
+    </div>
+    <button type="submit" class="btn btn-primary mt-3">Check VIN</button>
+</form>
+
+@if (ViewBag.Error != null)
+{
+    <div class="alert alert-danger mt-3">@ViewBag.Error</div>
+}
