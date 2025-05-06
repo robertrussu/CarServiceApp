@@ -1,0 +1,28 @@
+﻿@model IEnumerable<CarServiceApp.Models.ServiceRequest>
+
+<h2>My Appointments</h2>
+
+@if (!Model.Any())
+{
+    <p>You have no appointments scheduled.</p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Vehicle Model</th>
+                <th>Problem Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var app in Model)
+            {
+                <tr>
+                    <td>@app.VehicleModel</td>
+                    <td>@app.ProblemDescription</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
