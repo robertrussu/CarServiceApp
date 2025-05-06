@@ -1,0 +1,30 @@
+﻿@model IEnumerable<CarServiceApp.Models.ServiceRequest>
+
+@{
+    ViewData["Title"] = "All Service Requests";
+    Layout = "_Layout";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Full Name</th>
+            <th>Email</th>
+            <th>Vehicle Model</th>
+            <th>Problem Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var req in Model)
+        {
+            <tr>
+                <td>@req.FullName</td>
+                <td>@req.Email</td>
+                <td>@req.VehicleModel</td>
+                <td>@req.ProblemDescription</td>
+            </tr>
+        }
+    </tbody>
+</table>
