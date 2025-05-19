@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace YourProjectName.Controllers
+namespace CarServiceApp.Controllers
 {
 	public class VINCheckerController : Controller
 	{
