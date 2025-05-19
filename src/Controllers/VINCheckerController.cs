@@ -11,25 +11,33 @@ namespace CarServiceApp.Controllers
 		}
 
 		[HttpPost]
-		public IActionResult Index(string vin)
-		{
-			if (string.IsNullOrWhiteSpace(vin))
-			{
-				ViewBag.Error = "Please enter a VIN.";
-				return View();
-			}
+        [HttpPost]
+        public IActionResult Index(string vin)
+        {
+            if (string.IsNullOrWhiteSpace(vin))
+            {
+                ViewBag.Error = "Please enter a VIN.";
+                return View();
+            }
 
-			// Dummy API result (simulate API call)
-			var vehicleInfo = new
-			{
-				VIN = vin,
-				Make = "Toyota",
-				Model = "Supra",
-				Year = "1999",
-				Engine = "3.0L I6 Turbo"
-			};
+            if (vin.Length != 17)
+            {
+                ViewBag.Error = "VIN must be exactly 17 characters.";
+                return View();
+            }
 
-			return View("Result", vehicleInfo);
-		}
-	}
+            // Dummy or real API call below
+            var vehicleInfo = new
+            {
+                VIN = vin,
+                Make = "Toyota",
+                Model = "Supra",
+                Year = "1999",
+                Engine = "3.0L I6 Turbo"
+            };
+
+            return View("Result", vehicleInfo);
+        }
+
+    }
 }
