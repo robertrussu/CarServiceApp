@@ -1,6 +1,7 @@
 ﻿using Xunit;
 using Microsoft.AspNetCore.Mvc;
 using CarServiceApp.Controllers;
+using CarServiceApp.Models;
 
 namespace CarServiceApp.Tests
 {
