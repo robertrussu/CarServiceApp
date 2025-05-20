@@ -1,9 +1,37 @@
 ﻿using Xunit;
 using Microsoft.AspNetCore.Mvc;
 using CarServiceApp.Controllers;
+using CarServiceApp.Models;
 
 namespace CarServiceApp.Tests
 {
+ public class ServiceControllerTests
+    {
+        [Fact]
+        public void Schedule_InvalidModel_ReturnsViewWithModel()
+        {
+            // Arrange
+            var controller = new ServiceController();
+            controller.ModelState.AddModelError("FullName", "Required");
+
+            var request = new ServiceRequest
+            {
+                Email = "test@example.com",
+                VehicleModel = "Mazda MX-5",
+                ProblemDescription = "Testing test test"
+                // FullName is missing
+            };
+
+            // Act
+            var result = controller.Schedule(request) as ViewResult;
+
+            // Assert
+            Assert.NotNull(result);
+            Assert.False(controller.ModelState.IsValid);
+            Assert.IsType<ServiceRequest>(result.Model);
+        }
+    }
+    
     public class VINCheckerControllerTests
     {
         [Fact]
